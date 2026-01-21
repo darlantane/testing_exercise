@@ -11,17 +11,11 @@ driver.maximize_window()
 
 wait = WebDriverWait(driver, 15)
 
-# Cliquer sur l'icône de recherche
-bouton_recherche = wait.until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "button[aria-label='Search']"))
-)
-bouton_recherche.click()
-
 # Champ de recherche
 barre_recherche = wait.until(
-    EC.presence_of_element_located((By.NAME, "term"))
+    EC.presence_of_element_located((By.XPATH, "//*[@id='global-nav-search-input']"))
 )
-barre_recherche.send_keys("justloui")
+barre_recherche.send_keys("Ankama")
 barre_recherche.send_keys(Keys.ENTER)
 
 # Attendre les résultats

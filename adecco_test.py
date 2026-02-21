@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -45,7 +44,7 @@ class TestAdecco:
 
             # Localiser le champ de recherche
             search_input = self.wait.until(
-                EC.presence_of_element_located((By.NAME, "k"))
+                EC.presence_of_element_located((By.NAME, "jobsearch-title"))
             )
 
             search_input.clear()
@@ -56,7 +55,7 @@ class TestAdecco:
 
             # Attendre les résultats
             self.wait.until(
-                EC.presence_of_element_located((By.CLASS_NAME, "job-offer"))
+                EC.presence_of_element_located((By.XPATH, "//*[@id='main']/div[1]/section[2]/section[2]/section/section/section[1]/section[4]/article[1]"))
             )
 
             print("Résultats affichés")

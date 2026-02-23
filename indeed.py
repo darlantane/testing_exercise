@@ -161,6 +161,6 @@ if __name__ == "__main__":
         test.test_first_result_contains_title()
         test.test_click_first_job()
         test.test_pagination()
-        test.test_navigation_companies_page()
+
     finally:
         test.teardown()

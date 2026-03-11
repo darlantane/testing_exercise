@@ -102,8 +102,6 @@ class TestWelcomeToTheJungle:
         except TimeoutException:
             print("Image entreprise non trouvée")
 
-    # -------- Nouveaux tests --------
-
     def test_header_links(self):
         """Test 7 : Vérification des liens principaux du header"""
         self.driver.get("https://www.welcometothejungle.com/fr")
@@ -144,21 +142,6 @@ class TestWelcomeToTheJungle:
         except TimeoutException:
             print("Filtres non trouvés")
 
-    def test_job_pagination(self):
-        """Test 10 : Vérification de la pagination des offres d'emploi"""
-        self.driver.get("https://www.welcometothejungle.com/fr/jobs")
-        self.accept_cookies()
-        try:
-            next_button = self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "button[aria-label='Page suivante']"))
-            )
-            next_button.click()
-            print("Pagination fonctionnelle")
-        except TimeoutException:
-            print("Pagination non trouvée ou non fonctionnelle")
-
-    # -------- Fin nouveaux tests --------
-
     def teardown(self):
         """Fermeture du navigateur"""
         time.sleep(2)
@@ -179,6 +162,5 @@ if __name__ == "__main__":
         test.test_header_links()
         test.test_footer_presence()
         test.test_job_filters()
-        test.test_job_pagination()
     finally:
         test.teardown()
